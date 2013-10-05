@@ -88,11 +88,11 @@ or, more realistically, generated using Python's built-in `uuid.uuid4()`
         "settings": {
             "arbitrary": "key value settings"
         },
-        "content_types": [
+        "content_types": {
             "photos": true,
             "checkins": false,
             "facebook_specific_thing": true
-        ]
+        }
     }],
     "created_at": "2013-10-05 10:33:22",
     "updated_at": "2013-10-05 10:33:22"
@@ -126,7 +126,7 @@ Creates a user with the given credentials.
     - `access_secret` (required for `credential_pair` type): The secret or password associated with the key for the user on the service
     - `state` (optional): The current state of the storage backend, i.e `active` or `bad_authentication`
     - `settings` (optional): Any arbitrary service-specific settings. Any valid JSON can be passed into this key.
-    - `content_types` (optional): An array of boolean key-value pairs representing what the Asheville service should sync for the user
+    - `content_types` (optional): A hash of boolean key-value pairs representing what the Asheville service should sync for the user
 
 ##### Example
 
@@ -150,7 +150,7 @@ Returns:
     "identity": {
         "email": "jackpearkes@gmail.com",
         "name": null
-    }
+    },
     "storages": [],
     "sources": [],
     "created_at": "2013-10-05 10:33:22",
