@@ -164,14 +164,21 @@ Admin exposes various statistics about the Asheville user accounts.
 
 #### Retrieve Stats
 
-Creates a user with the given credentials.
+Returns some userbase stats about Asheville.
 
-**URL**: `/v1/user`
+**URL**: `/v1/admin/stats`
 
-**METHOD**: `POST`
+**METHOD**: `GET`
 
-**PARAMS**:
+##### Example
 
+`GET /v1/admin/stats`
 
+Returns:
 
-
+```json
+{
+    "total_users": 41,
+    "last_signup_at": "2013-10-05 10:33:22"
+}
+```
