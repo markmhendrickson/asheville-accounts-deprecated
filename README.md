@@ -29,7 +29,20 @@ X-Asheville-Auth: "foobar-token"
 
 ## Hacking on asheville-accounts
 
-TODO Vagrant Guide.
+`make deps` will install most of the requirements. Before you run that, though,
+make sure you have libevent installed. If you don't, you'll see this error:
+
+```
+In file included from gevent/core.c:253:
+
+gevent/libevent.h:9:10: fatal error: 'event.h' file not found
+
+#include "event.h"
+```
+
+If you use Homebrew, you can get it with `brew install libevent`.
+
+TODO: more Vagrant Guide
 
 ## API
 
