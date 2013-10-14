@@ -49,6 +49,8 @@ TODO: more Vagrant Guide
 ### Table of Contents
 
 - [User](#user) contains methods for manipulating individual Asheville users
+- [Storages](#storages) contained methods for manipulating a storage object
+- [Sources](#sources) contained methods for manipulating a source object
 - [Admin](#admin) exposes various admin statistics about the Asheville userbase
 
 This is documentation for an early API. It is very much a work-in-progress
@@ -152,6 +154,55 @@ Payload:
     "identity": {
         "email": "jackpearkes@gmail.com"
     }
+}
+```
+
+Returns:
+
+```json
+{
+    "id": "6f447ed6-15b5-4e3b-b301-ddc0d07f409b",
+    "identity": {
+        "email": "jackpearkes@gmail.com",
+        "name": null
+    },
+    "storages": [],
+    "sources": [],
+    "created_at": "2013-10-05 10:33:22",
+    "updated_at" "2013-10-05 10:33:22"
+}
+```
+
+#### Create a Storage
+
+Creates a storage object for a user.
+
+**URL**: `/v1/storage`
+
+**METHOD**: `POST`
+
+**REQUEST BODY** (json):
+
+- `user_id` (required): The ID of the user who owns the storage object
+- `type` (required): The type of storage backend, i.e `dropbox`
+- `authentication_type` (required): The method of authentication, i.e `credential_pair`
+- `access_key` (required for `credential_pair` type): The key or ID on the service for the user
+- `access_secret` (required for `credential_pair` type): The secret or password associated with the key for the user on the service
+- `state` (optional): The current state of the storage backend, i.e `active` or `bad_authentication`
+- `settings` (optional): Any arbitrary service-specific settings. Any valid JSON can be passed into this key.
+
+##### Example
+
+`POST /v1/storage`
+
+Payload:
+
+```json
+{
+    "user_id": "6f447ed6-15b5-4e3b-b301-ddc0d07f409b",
+    "type": "dropbox",
+    "authentication_type": "credential_pair",
+    "access_key": "",
 }
 ```
 
