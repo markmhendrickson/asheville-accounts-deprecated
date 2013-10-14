@@ -29,20 +29,21 @@ X-Asheville-Auth: "foobar-token"
 
 ## Hacking on asheville-accounts
 
-`make deps` will install most of the requirements. Before you run that, though,
-make sure you have libevent installed. If you don't, you'll see this error:
+To run the accounts API, you'll need to download and install [Vagrant](http://vagrantup.com)
+and [VirtualBox](http://virtualbox.org/).
 
-```
-In file included from gevent/core.c:253:
+Then, simply run:
 
-gevent/libevent.h:9:10: fatal error: 'event.h' file not found
+    $ vagrant up
+    ...
 
-#include "event.h"
-```
+Vagrant will download and launch a VM, already provisioned to run
+this Asheville service. Once `vagrant up` finishes, you can get into
+the VM but running `vagrant ssh`. Your working directory will
+be sycned to `/vagrant` on the VM.
 
-If you use Homebrew, you can get it with `brew install libevent`.
-
-TODO: more Vagrant Guide
+However, you don't *need* to use Vagrant, though it is recommended. See
+the [alternative hacking](https://github.com/asheville/accounts/wiki/Alternative-Hacking-Guide) guide for running outside of a VM.
 
 ## API
 
